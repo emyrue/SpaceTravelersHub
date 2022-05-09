@@ -1,22 +1,35 @@
-const FETCHED_MISSIONS = 'SpaceTravelersHub/missions/RETRIEVED_MISSIONS';
+import retrieveMissions from './missionsAPI';
 
-// const initialState = [
-//   {
-//     id: 1,
-//     mission_name: 'Mission 1',
-//     description: 'The first mission',
-//   },
-//   {
-//     id: 2,
-//     mission_name: 'Mission 2',
-//     description: 'The second mission',
-//   },
-//   {
-//     id: 3,
-//     mission_name: 'Mission 3',
-//     description: 'The third mission',
-//   },
-// ];
+const FETCHED_MISSIONS = 'SpaceTravelersHub/missions/RETRIEVED_MISSIONS';
 
 const initialState = [];
 
+// Action Creator
+export const getMissions = () => async (dispatch) => {
+  const allMissions = await retrieveMissions();
+
+  const missions = allMissions.map((mission) => (
+    {
+      id: mission.mission_id,
+      name: mission.mission_name,
+      description: mission.description,
+    }
+  ));
+
+  dispatch({
+    type: FETCHED_MISSIONS,
+    payload: missions,
+  });
+};
+
+// Reducer
+const missionReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case FETCHED_MISSIONS:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+export default missionReducer;

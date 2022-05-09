@@ -1,6 +1,7 @@
 // import React from 'react';
 import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
+import MissionData from './MissionData';
+// import Button from 'react-bootstrap/Button';
 
 const data = [
   {
@@ -35,17 +36,18 @@ const Missions = () => (
       </thead>
 
       <tbody>
-        {data.map((item) => (
-          <tr key={item.id}>
-            <td>{item.mission_name}</td>
-            <td>{item.description}</td>
-            <td>
-              <Button variant="secondary" size="sm">Not a member</Button>
-            </td>
-            <td>
-              <Button variant="outline-secondary" size="sm">Join mission</Button>
-            </td>
-          </tr>
+        {data.map((mission) => (
+          <MissionData key={mission.id} mission={mission} />
+          // <tr key={item.id}>
+          //   <td>{item.mission_name}</td>
+          //   <td>{item.description}</td>
+          //   <td>
+          //     <Button variant="secondary" size="sm">Not a member</Button>
+          //   </td>
+          //   <td>
+          //     <Button variant="outline-secondary" size="sm">Join mission</Button>
+          //   </td>
+          // </tr>
         ))}
       </tbody>
 
