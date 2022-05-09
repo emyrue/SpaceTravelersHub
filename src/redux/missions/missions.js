@@ -1,4 +1,4 @@
-// const FETCHED_MISSIONS = 'SpaceTravelersHub/missions/RETRIEVED_MISSIONS';
+const FETCHED_MISSIONS = 'SpaceTravelersHub/missions/RETRIEVED_MISSIONS';
 
 // const initialState = [
 //   {
@@ -18,4 +18,5 @@
 //   },
 // ];
 
-// const 
+const initialState = [];
+
