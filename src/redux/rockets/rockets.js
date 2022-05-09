@@ -15,6 +15,11 @@ export default function reducer(state = [], action) {
 
 export function saveRockets(array) {
   return () => ({
-    array,
+    array: array.map((rocket) => ({
+      id: rocket.id,
+      name: rocket.rocket_name,
+      type: rocket.rocket_type,
+      image: rocket.flickr_images[0],
+    })),
   });
 }

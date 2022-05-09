@@ -1,4 +1,5 @@
 import React from 'react';
+import { saveRockets } from '../redux/rockets/rockets';
 
 const rocketURL = 'https://api.spacexdata.com/v3/rockets';
 
@@ -7,8 +8,7 @@ const Rockets = () => {
   React.useEffect(() => {
     const getRockets = async () => {
       const myRockets = await (await fetch(rocketURL)).json();
-      console.log(myRockets);
-      changeRockets(myRockets[1].description);
+      changeRockets(saveRockets(myRockets)());
     };
     getRockets();
   }, []);
