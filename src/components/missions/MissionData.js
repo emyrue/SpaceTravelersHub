@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
-import { useDispatch, useSelector } from 'react-redux';
+import Badge from 'react-bootstrap/Badge';
+import { useDispatch } from 'react-redux';
 import { joinMission, leaveMission } from '../../redux/missions/missions';
 
 const MissionData = (props) => {
-  const missions = useSelector((state) => state.missions);
-
   const { mission } = props;
   const dispatch = useDispatch();
 
@@ -22,31 +21,36 @@ const MissionData = (props) => {
     <tr>
       <td>{mission.name}</td>
       <td>{mission.description}</td>
-      <td>
-        {/* <button></button> */}
-        <Button variant="secondary" size="sm">Not a member</Button>
-      </td>
-      <td>
 
-        {!reserved && (
-          <button type="button" onClick={() => joinBtn(mission.id)}>join</button>
-          // <Button
-          //   onClick={() => joinBtn(mission.id)}
-          //   variant="outline-secondary"
-          //   size="sm"
-          // >
-          //   Join mission
-          // </Button>
+      <td className="align-middle">
+        {!mission.reserved && (
+          <Badge bg="secondary" className="p-2">Not a member</Badge>
         )}
-        {reserved && (
-          <button type="button" onClick={() => leaveBtn(mission.id)}>leave</button>
-          // <Button
-          //   onClick={() => leaveBtn(mission.id)}
-          //   variant="outline-secondary"
-          //   size="sm"
-          // >
-          //   Leave mission
-          // </Button>
+        {mission.reserved && (
+          <Badge bg="info" className="p-2">Active Member</Badge>
+        )}
+      </td>
+
+      <td className="align-middle">
+        {!mission.reserved && (
+          <Button
+            onClick={() => { joinBtn(mission.id); }}
+            variant="outline-secondary"
+            className="text-nowrap"
+            size="sm"
+          >
+            Join mission
+          </Button>
+        )}
+        {mission.reserved && (
+          <Button
+            onClick={() => leaveBtn(mission.id)}
+            variant="outline-danger"
+            className="text-nowrap"
+            size="sm"
+          >
+            Leave mission
+          </Button>
         )}
       </td>
     </tr>
@@ -55,7 +59,6 @@ const MissionData = (props) => {
 
 MissionData.defaultProps = {
   mission: [],
-  // reserved: false,
 };
 
 MissionData.propTypes = {
@@ -64,9 +67,9 @@ MissionData.propTypes = {
       id: PropTypes.string,
       name: PropTypes.string,
       description: PropTypes.string,
+      reserved: PropTypes.bool,
     },
   ),
-  reserved: PropTypes.bool,
 };
 
 export default MissionData;
