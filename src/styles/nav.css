@@ -2,6 +2,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 5px;
 }
 
 .logo-container {
@@ -11,4 +12,19 @@ header {
 
 .logo {
   height: 50px;
+}
+
+nav {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.active {
+  text-decoration: underline;
 }

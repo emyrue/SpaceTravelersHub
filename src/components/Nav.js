@@ -10,9 +10,9 @@ const Nav = () => (
       <div>Space Travelers&apos; Hub</div>
     </div>
     <nav>
-      <NavLink to="/">Rockets</NavLink>
-      <NavLink to="/missions">Missions</NavLink>
-      <NavLink to="/profile">Profile</NavLink>
+      <NavLink className="link" exact={+true} activeClassName="active" to="/">Rockets</NavLink>
+      <NavLink className="link" activeClassName="active" to="/missions">Missions</NavLink>
+      <NavLink className="link" activeClassName="active" to="/profile">Profile</NavLink>
     </nav>
   </header>
 );
