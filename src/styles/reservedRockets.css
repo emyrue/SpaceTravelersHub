@@ -23,4 +23,5 @@ h2 {
   height: 50px;
   display: flex;
   align-items: center;
+  margin-top: -1px;
 }
