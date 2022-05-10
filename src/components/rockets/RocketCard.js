@@ -5,16 +5,14 @@ import { reserveRocket } from '../../redux/rockets/rockets';
 export default function RocketCard() {
   const rockets = useSelector((state) => state.rockets);
   const dispatch = useDispatch();
-  const textArray = rockets.map((rocket) => (rocket.reserved ? 'Cancel Reservation' : 'Reserve Rocket'));
-  const classArray = rockets.map((rocket) => (rocket.reserved ? 'rocket-cancel' : 'rocket-reserve'));
 
-  const handleReserve = (i) => {
-    const action = reserveRocket(i)();
+  const handleReserve = (id) => {
+    const action = reserveRocket(id)();
     dispatch(action);
   };
 
   return (
-    rockets.map((rocket, i) => (
+    rockets.map((rocket) => (
       <div className="rocket-card" key={rocket.id}>
         <img className="rocket-image" src={rocket.image} alt="rocket" />
         <div className="rocket-info">
@@ -23,7 +21,12 @@ export default function RocketCard() {
             {rocket.reserved && (<span className="rocket-badge">Reserved</span>)}
             {rocket.description}
           </div>
-          <button onClick={() => { handleReserve(i); }} className={classArray[i]} type="button">{textArray[i]}</button>
+          {rocket.reserved && (
+            <button onClick={() => { handleReserve(rocket.id); }} className="rocket-cancel" type="button">Cancel Reservation</button>
+          )}
+          {!rocket.reserved && (
+            <button onClick={() => { handleReserve(rocket.id); }} className="rocket-reserve" type="button">Reserve Rocket</button>
+          )}
         </div>
       </div>
     ))

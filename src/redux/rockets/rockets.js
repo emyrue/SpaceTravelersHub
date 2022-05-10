@@ -9,8 +9,8 @@ export default function reducer(state = [], action) {
     case SAVE:
       return action.array;
     case RESERVE:
-      newState = state.map((rocket, i) => {
-        if (action.id === i) {
+      newState = state.map((rocket) => {
+        if (action.id === rocket.id) {
           return {
             ...rocket,
             reserved: !rocket.reserved,
