@@ -1,19 +1,23 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { saveRockets } from '../../redux/rockets/rockets';
+import RocketCard from './RocketCard';
+import '../../styles/rocket.css';
 
 const rocketURL = 'https://api.spacexdata.com/v3/rockets';
 
 const Rockets = () => {
-  const [rockets, changeRockets] = React.useState();
+  const dispatch = useDispatch();
   React.useEffect(() => {
     const getRockets = async () => {
       const myRockets = await (await fetch(rocketURL)).json();
-      changeRockets(myRockets[0].rocket_name);
-      console.log(myRockets);
+      const getRockets = saveRockets(myRockets)();
+      dispatch(getRockets);
     };
     getRockets();
   }, []);
   return (
-    <h1>{rockets}</h1>
+    <RocketCard />
   );
 };
 
