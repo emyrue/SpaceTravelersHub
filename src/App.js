@@ -7,6 +7,7 @@ import Rockets from './components/rockets/Rockets';
 import Missions from './components/missions/Missions';
 import Profile from './components/Profile';
 import Nav from './components/Nav';
+import { getMissions } from './redux/missions/missions';
 
 const rocketURL = 'https://api.spacexdata.com/v3/rockets';
 
@@ -19,6 +20,7 @@ function App() {
       dispatch(getRockets);
     };
     getRockets();
+    dispatch(getMissions());
   }, []);
   return (
     <BrowserRouter>
