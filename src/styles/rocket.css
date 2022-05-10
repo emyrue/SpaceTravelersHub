@@ -1,0 +1,28 @@
+.rocket-card {
+  display: flex;
+  margin: 20px;
+}
+
+.rocket-image {
+  max-width: 250px;
+}
+
+.rocket-info {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.rocket-description {
+  font-size: 15px;
+}
+
+.rocket-reserve {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0290ff;
+  color: white;
+}

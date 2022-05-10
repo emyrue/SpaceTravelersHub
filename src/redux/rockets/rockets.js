@@ -1,5 +1,6 @@
 // Actions
 const SAVE = 'spacetravelershub/rockets/SAVE';
+// const RESERVE = 'spacetravelershub/rockets/RESERVE';
 
 // Reducer
 export default function reducer(state = [], action) {
@@ -15,10 +16,12 @@ export default function reducer(state = [], action) {
 
 export function saveRockets(array) {
   return () => ({
+    type: SAVE,
     array: array.map((rocket) => ({
+      reserved: false,
       id: rocket.id,
       name: rocket.rocket_name,
-      type: rocket.rocket_type,
+      description: rocket.description,
       image: rocket.flickr_images[0],
     })),
   });

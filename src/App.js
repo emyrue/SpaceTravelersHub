@@ -1,11 +1,25 @@
 import './App.css';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Rockets from './components/Rockets';
+import { useDispatch } from 'react-redux';
+import { saveRockets } from './redux/rockets/rockets';
+import Rockets from './components/rockets/Rockets';
 import Missions from './components/missions/Missions';
 import Profile from './components/Profile';
 import Nav from './components/Nav';
 
+const rocketURL = 'https://api.spacexdata.com/v3/rockets';
+
 function App() {
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    const getRockets = async () => {
+      const myRockets = await (await fetch(rocketURL)).json();
+      const getRockets = saveRockets(myRockets)();
+      dispatch(getRockets);
+    };
+    getRockets();
+  }, []);
   return (
     <BrowserRouter>
       <Nav />
