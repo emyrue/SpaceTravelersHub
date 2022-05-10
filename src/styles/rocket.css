@@ -14,6 +14,15 @@
   justify-content: space-around;
 }
 
+.rocket-badge {
+  display: inline-block;
+  padding: 0 5px;
+  margin: 0 5px 0 0;
+  background-color: #0290ff;
+  color: white;
+  border-radius: 5px;
+}
+
 .rocket-description {
   font-size: 15px;
 }
@@ -25,4 +34,13 @@
   border-radius: 5px;
   background-color: #0290ff;
   color: white;
+}
+
+.rocket-cancel {
+  width: 200px;
+  height: 40px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: white;
+  color: lightgray;
 }
