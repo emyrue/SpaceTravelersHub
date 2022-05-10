@@ -26,3 +26,12 @@
   background-color: #0290ff;
   color: white;
 }
+
+.rocket-cancel {
+  width: 200px;
+  height: 40px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: white;
+  color: lightgray;
+}
