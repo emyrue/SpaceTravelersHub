@@ -1,16 +1,9 @@
-import { useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
-import { useDispatch, useSelector } from 'react-redux';
-import { getMissions } from '../../redux/missions/missions';
+import { useSelector } from 'react-redux';
 import MissionData from './MissionData';
 
 const Missions = () => {
   const missions = useSelector((state) => state.missions);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getMissions());
-  }, []);
 
   return (
     <div>
