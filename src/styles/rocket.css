@@ -1,3 +1,7 @@
+.default {
+  display: none;
+}
+
 .rocket-card {
   display: flex;
   margin: 20px;
@@ -12,6 +16,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+.rocket-badge {
+  display: inline-block;
+  padding: 0 5px;
+  margin: 0 5px 0 0;
+  background-color: #0290ff;
+  color: white;
+  border-radius: 5px;
 }
 
 .rocket-description {
