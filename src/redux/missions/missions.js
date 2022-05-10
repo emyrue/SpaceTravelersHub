@@ -1,10 +1,12 @@
 import retrieveMissions from './missionsAPI';
 
 const FETCHED_MISSIONS = 'SpaceTravelersHub/missions/RETRIEVED_MISSIONS';
+const JOINED_MISSION = 'SpaceTravelersHub/missions/JOINED_MISSION';
+const LEFT_MISSION = 'SpaceTravelersHub/missions/LEFT_MISSION';
 
 const initialState = [];
 
-// Action Creator
+// Action Creators
 export const getMissions = () => async (dispatch) => {
   const allMissions = await retrieveMissions();
 
@@ -22,11 +24,39 @@ export const getMissions = () => async (dispatch) => {
   });
 };
 
+export const joinMission = (id) => ({
+  type: JOINED_MISSION,
+  payload: id,
+});
+
+export const leaveMission = (id) => ({
+  type: LEFT_MISSION,
+  payload: id,
+});
+
 // Reducer
 const missionReducer = (state = initialState, action) => {
+  let newState;
   switch (action.type) {
     case FETCHED_MISSIONS:
       return action.payload;
+
+    case JOINED_MISSION:
+      console.log('clicked');
+      newState = state.map((mission) => {
+        if (mission.id !== action.payload) return mission;
+        return {
+          ...mission, reserved: true,
+        };
+      });
+      console.log(newState);
+      return newState;
+
+    case LEFT_MISSION:
+      return state.map((mission) => {
+        if (mission.id !== action.payload) return mission;
+        return { ...mission, reserved: false };
+      });
     default:
       return state;
   }
