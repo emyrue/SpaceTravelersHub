@@ -1,0 +1,25 @@
+.profile {
+  display: flex;
+}
+
+.tables {
+  width: 50%;
+}
+
+h2 {
+  padding: 30px 10px;
+}
+
+.rocket-container {
+  list-style: none;
+  padding: 0;
+  margin: 10px;
+}
+
+.reserved-rocket {
+  border: 1px solid lightgray;
+  padding: 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
