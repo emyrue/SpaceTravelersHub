@@ -1,7 +1,3 @@
-.default {
-  display: none;
-}
-
 .rocket-card {
   display: flex;
   margin: 20px;
