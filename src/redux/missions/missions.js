@@ -42,21 +42,23 @@ const missionReducer = (state = initialState, action) => {
       return action.payload;
 
     case JOINED_MISSION:
-      console.log('clicked');
       newState = state.map((mission) => {
         if (mission.id !== action.payload) return mission;
         return {
           ...mission, reserved: true,
         };
       });
-      console.log(newState);
       return newState;
 
     case LEFT_MISSION:
-      return state.map((mission) => {
+      newState = state.map((mission) => {
         if (mission.id !== action.payload) return mission;
-        return { ...mission, reserved: false };
+        return {
+          ...mission, reserved: false,
+        };
       });
+      return newState;
+
     default:
       return state;
   }
