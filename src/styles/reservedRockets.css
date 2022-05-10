@@ -1,9 +1,10 @@
 .profile {
   display: flex;
+  justify-content: space-around;
 }
 
 .tables {
-  width: 50%;
+  width: 40%;
 }
 
 h2 {
