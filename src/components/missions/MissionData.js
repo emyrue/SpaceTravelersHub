@@ -2,15 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 
-// import { useDispatch } from 'react-redux';
-
-const Mission = (props) => {
+const MissionData = (props) => {
   const { mission } = props;
-  // const dispatch = useDispatch();
 
   return (
     <tr>
-      <td>{mission.mission_name}</td>
+      <td>{mission.name}</td>
       <td>{mission.description}</td>
       <td>
         <Button variant="secondary" size="sm">Not a member</Button>
@@ -22,17 +19,17 @@ const Mission = (props) => {
   );
 };
 
-Mission.defaultProps = {
+MissionData.defaultProps = {
   mission: [],
 };
 
-Mission.propTypes = {
+MissionData.propTypes = {
   mission: PropTypes.shape(
     {
-      mission_name: PropTypes.string,
+      name: PropTypes.string,
       description: PropTypes.string,
     },
   ),
 };
 
-export default Mission;
+export default MissionData;

@@ -1,58 +1,40 @@
-// import React from 'react';
+import { useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMissions } from '../../redux/missions/missions';
 import MissionData from './MissionData';
-// import Button from 'react-bootstrap/Button';
 
-const data = [
-  {
-    id: 1,
-    mission_name: 'Mission 1',
-    description: 'The first mission',
-  },
-  {
-    id: 2,
-    mission_name: 'Mission 2',
-    description: 'The second mission',
-  },
-  {
-    id: 3,
-    mission_name: 'Mission 3',
-    description: 'The third mission',
-  },
-];
+const Missions = () => {
+  const missions = useSelector((state) => state.missions);
+  const dispatch = useDispatch();
 
-const Missions = () => (
-  <div>
-    <h1>Missions</h1>
+  useEffect(() => {
+    dispatch(getMissions());
+  }, []);
 
-    <Table striped bordered>
-      <thead>
-        <tr>
-          <th>Mission</th>
-          <th>Description</th>
-          <th>Status</th>
-          <th>&nbsp;</th>
-        </tr>
-      </thead>
+  return (
+    <div>
+      <h1>Missions</h1>
 
-      <tbody>
-        {data.map((mission) => (
-          <MissionData key={mission.id} mission={mission} />
-          // <tr key={item.id}>
-          //   <td>{item.mission_name}</td>
-          //   <td>{item.description}</td>
-          //   <td>
-          //     <Button variant="secondary" size="sm">Not a member</Button>
-          //   </td>
-          //   <td>
-          //     <Button variant="outline-secondary" size="sm">Join mission</Button>
-          //   </td>
-          // </tr>
-        ))}
-      </tbody>
+      <Table striped bordered>
+        <thead>
+          <tr>
+            <th>Mission</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
 
-    </Table>
-  </div>
-);
+        <tbody>
+          {missions.map((mission) => (
+            <MissionData key={mission.id} mission={mission} />
+          ))}
+        </tbody>
+
+      </Table>
+    </div>
+  );
+};
 
 export default Missions;

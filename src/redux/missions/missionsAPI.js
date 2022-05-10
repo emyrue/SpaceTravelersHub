@@ -1,6 +1,6 @@
 const retrieveMissions = async () => {
   const response = await fetch('https://api.spacexdata.com/v3/missions');
-  const data = response.json;
+  const data = await response.json();
   return data;
 };
 
