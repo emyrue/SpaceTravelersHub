@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { saveRockets } from './redux/rockets/rockets';
 import Rockets from './components/rockets/Rockets';
 import Missions from './components/missions/Missions';
-import Profile from './components/Profile';
+import Profile from './components/profile/Profile';
 import Nav from './components/Nav';
 import { getMissions } from './redux/missions/missions';
 

@@ -1,0 +1,27 @@
+.profile {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tables {
+  width: 40%;
+}
+
+.my-blank {
+  padding: 30px 10px;
+}
+
+.rocket-container {
+  list-style: none;
+  padding: 0;
+  margin: 10px;
+}
+
+.reserved-rocket {
+  border: 1px solid lightgray;
+  padding: 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-top: -1px;
+}
