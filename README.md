@@ -20,11 +20,10 @@
 - External API
 
 
-<!-- ## Live site 🚀
+## Live site 🚀
 
-🔗 [Heroku]()
+🔗 [Heroku](https://spacetravelershubemilyselase.herokuapp.com/)
 
-🔗 [Netlify]() -->
 
 
 ## Getting Started
