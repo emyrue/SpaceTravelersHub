@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { reserveRocket } from '../../redux/rockets/rockets';
 import { Table, Button } from 'react-bootstrap';
+import { reserveRocket } from '../../redux/rockets/rockets';
 
 export default function ReservedRockets() {
   const rockets = useSelector((state) => state.rockets);
@@ -24,14 +24,14 @@ export default function ReservedRockets() {
   return (
     <Table striped bordered>
       <tbody>
-      {activeRockets.map((rocket) => (
-        <tr key={rocket.id}>
-          <td className="d-flex justify-content-between align-items-center">
-          {rocket.name}
-          <Button variant="outline-danger" className="cancel" onClick={() => { cancel(rocket.id); }}>Cancel Reservation</Button>
-          </td>
-        </tr>
-      ))}
+        {activeRockets.map((rocket) => (
+          <tr key={rocket.id}>
+            <td className="d-flex justify-content-between align-items-center">
+              {rocket.name}
+              <Button variant="outline-danger" className="cancel" onClick={() => { cancel(rocket.id); }}>Cancel Reservation</Button>
+            </td>
+          </tr>
+        ))}
       </tbody>
     </Table>
   );
