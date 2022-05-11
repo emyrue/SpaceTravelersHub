@@ -1,0 +1,40 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 30px;
+  padding-left: 10px;
+}
+
+nav {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+a.active {
+  text-decoration: underline;
+}
+
+.header-container {
+  border-bottom: 1px solid lightgray;
+}
