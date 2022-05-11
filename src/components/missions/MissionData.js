@@ -19,7 +19,7 @@ const MissionData = (props) => {
 
   return (
     <tr>
-      <td>{mission.name}</td>
+      <td className="fw-bold">{mission.name}</td>
       <td>{mission.description}</td>
 
       <td className="align-middle">
