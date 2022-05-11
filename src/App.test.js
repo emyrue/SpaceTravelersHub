@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import rocketReducer, { saveRockets, reserveRocket } from './redux/rockets/rockets.js';
+import missionReducer, { joinMission, leaveMission } from './redux/missions/missions.js';
 import store from './redux/configureStore.js';
 import App from './App';
 import icon from '../public/favicon.ico';
@@ -17,7 +18,7 @@ describe('rocket action creators work', () => {
         id: 1,
         rocket_name: 'rocket',
         description: 'it\'s a rocket',
-        flickr_images:  [icon],
+        flickr_images: [icon],
       },
     ];
     const expectedState = [
@@ -53,5 +54,46 @@ describe('rocket action creators work', () => {
     ];
     const action = reserveRocket(1);
     expect(rocketReducer(state, action())).toStrictEqual(expectedState);
+  });
+
+  test('join mission action creator works', () => {
+    const state = [
+      {
+        id: 1,
+        mission_name: 'Mission 1',
+        description: 'This is the first mission',
+        reserved: false,
+      },
+    ];
+    const expectedState = [
+      {
+        id: 1,
+        mission_name: 'Mission 1',
+        description: 'This is the first mission',
+        reserved: true,
+      },
+    ];
+    const action = joinMission(state[0].id);
+    expect(missionReducer(state, action)).toStrictEqual(expectedState);
+  });
+  test('leave mission action creator works', () => {
+    const state = [
+      {
+        id: 1,
+        mission_name: 'Mission 1',
+        description: 'This is the first mission',
+        reserved: true,
+      },
+    ];
+    const expectedState = [
+      {
+        id: 1,
+        mission_name: 'Mission 1',
+        description: 'This is the first mission',
+        reserved: false,
+      },
+    ];
+    const action = leaveMission(state[0].id);
+    expect(missionReducer(state, action)).toStrictEqual(expectedState);
   });
 });
