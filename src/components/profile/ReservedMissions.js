@@ -20,8 +20,8 @@ const ReservedMissions = () => {
           {activeMissions.length > 0
             ? activeMissions.map((mission) => (
               <tr key={mission.id}>
-                <td>{mission.name}</td>
-                <td>
+                <td className="d-flex justify-content-between">
+                  {mission.name}
                   <Button
                     onClick={() => leaveBtn(mission.id)}
                     variant="outline-danger"
