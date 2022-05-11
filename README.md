@@ -47,6 +47,7 @@ You should see the app in your browser address bar at `http://localhost:3000`
 👤 **Emily**
 
 - GitHub: [@emyrue](https://github.com/emyrue)
+- LinkedIn: [Emily Robertson](www.linkedin.com/in/emilyruthrobertson)
 
 👤 **Selase**
 

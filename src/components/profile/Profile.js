@@ -11,9 +11,7 @@ const Profile = () => (
     </div>
     <div className="tables">
       <h2 className="my-blank">My Rockets</h2>
-      <ul className="rocket-container">
-        <ReservedRockets />
-      </ul>
+      <ReservedRockets />
     </div>
   </section>
 );
