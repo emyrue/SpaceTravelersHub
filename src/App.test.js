@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import rocketReducer, { saveRockets, reserveRocket } from './redux/rockets/rockets.js';
-import missionReducer, { joinMission, leaveMission } from './redux/missions/missions.js';
-import store from './redux/configureStore.js';
+import rocketReducer, { saveRockets, reserveRocket } from './redux/rockets/rockets';
+import missionReducer, { joinMission, leaveMission } from './redux/missions/missions';
+import store from './redux/configureStore';
 import App from './App';
 import icon from '../public/favicon.ico';
 

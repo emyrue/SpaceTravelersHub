@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
-import Missions from './Missions';
 import { Provider } from 'react-redux';
+import Missions from './Missions';
 import store from '../../redux/configureStore';
 
 describe(' Missions Component Rendering ', () => {
@@ -9,7 +9,8 @@ describe(' Missions Component Rendering ', () => {
       .create(
         <Provider store={store}>
           <Missions />
-        </Provider>)
+        </Provider>,
+      );
     expect(tree).toMatchSnapshot();
   });
-})
+});

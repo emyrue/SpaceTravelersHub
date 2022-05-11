@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
-import Profile from './Profile';
 import { Provider } from 'react-redux';
+import Profile from './Profile';
 import store from '../../redux/configureStore';
 
 describe(' Profile Component Rendering ', () => {
@@ -9,7 +9,8 @@ describe(' Profile Component Rendering ', () => {
       .create(
         <Provider store={store}>
           <Profile />
-        </Provider>)
+        </Provider>,
+      );
     expect(tree).toMatchSnapshot();
   });
-})
+});

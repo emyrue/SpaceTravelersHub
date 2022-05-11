@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
-import Rockets from './Rockets';
 import { Provider } from 'react-redux';
+import Rockets from './Rockets';
 import store from '../../redux/configureStore';
 
 describe(' Rockets Component Rendering ', () => {
@@ -9,7 +9,8 @@ describe(' Rockets Component Rendering ', () => {
       .create(
         <Provider store={store}>
           <Rockets />
-        </Provider>)
+        </Provider>,
+      );
     expect(tree).toMatchSnapshot();
   });
-})
+});
