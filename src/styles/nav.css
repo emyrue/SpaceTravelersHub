@@ -3,7 +3,6 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 5px;
-  border-bottom: 1px solid lightgray;
 }
 
 .logo-container {
@@ -13,6 +12,12 @@ header {
 
 .logo {
   height: 50px;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 30px;
+  padding-left: 10px;
 }
 
 nav {
@@ -26,6 +31,10 @@ nav {
   color: black;
 }
 
-.active {
+a.active {
   text-decoration: underline;
+}
+
+.header-container {
+  border-bottom: 1px solid lightgray;
 }
