@@ -19,13 +19,6 @@
 - React Bootstrap
 - External API
 
-
-## Live site 🚀
-
-🔗 [Heroku](https://spacetravelershubemilyselase.herokuapp.com/)
-
-
-
 ## Getting Started
 
 To get a local copy up and running follow this simple step:
